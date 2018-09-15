@@ -1,0 +1,2 @@
+class Denuncias < ApplicationRecord
+end

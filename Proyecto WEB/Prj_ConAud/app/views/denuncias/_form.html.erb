@@ -1,0 +1,62 @@
+<%= form_with(model: denuncia, local: true) do |form| %>
+  <% if denuncia.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(denuncia.errors.count, "error") %> prohibited this denuncia from being saved:</h2>
+
+      <ul>
+      <% denuncia.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :id_den %>
+    <%= form.text_field :id_den %>
+  </div>
+
+  <div class="field">
+    <%= form.label :id_usu_den %>
+    <%= form.number_field :id_usu_den %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lat_den %>
+    <%= form.text_field :lat_den %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lon_den %>
+    <%= form.text_field :lon_den %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ima_fue %>
+    <%= form.text_field :ima_fue %>
+  </div>
+
+  <div class="field">
+    <%= form.label :aud_rep %>
+    <%= form.text_field :aud_rep %>
+  </div>
+
+  <div class="field">
+    <%= form.label :aud_niv %>
+    <%= form.text_field :aud_niv %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fec_den %>
+    <%= form.date_select :fec_den %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hor_den %>
+    <%= form.time_select :hor_den %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

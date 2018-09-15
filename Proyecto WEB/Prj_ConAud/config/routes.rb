@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :denuncias
   resources :tip_docs
   resources :seguimientos
   resources :estados
