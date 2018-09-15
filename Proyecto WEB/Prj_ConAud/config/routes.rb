@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
+  resources :tip_docs
+  resources :seguimientos
+  resources :estados
+  resources :denuncia
+  resources :denunciantes
+  resources :autoridads
   devise_for :users
+  resources :home
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'home#home'
 end

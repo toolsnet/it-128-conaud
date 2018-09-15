@@ -1,0 +1,62 @@
+<%= form_with(model: autoridad, local: true) do |form| %>
+  <% if autoridad.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(autoridad.errors.count, "error") %> prohibited this autoridad from being saved:</h2>
+
+      <ul>
+      <% autoridad.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :id_aut %>
+    <%= form.text_field :id_aut %>
+  </div>
+
+  <div class="field">
+    <%= form.label :id_tip_doc %>
+    <%= form.number_field :id_tip_doc %>
+  </div>
+
+  <div class="field">
+    <%= form.label :num_doc_aut %>
+    <%= form.number_field :num_doc_aut %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pri_nom_aut %>
+    <%= form.text_field :pri_nom_aut %>
+  </div>
+
+  <div class="field">
+    <%= form.label :seg_nom_aut %>
+    <%= form.text_field :seg_nom_aut %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pri_ape_aut %>
+    <%= form.text_field :pri_ape_aut %>
+  </div>
+
+  <div class="field">
+    <%= form.label :seg_ape_aut %>
+    <%= form.text_field :seg_ape_aut %>
+  </div>
+
+  <div class="field">
+    <%= form.label :usu_aut %>
+    <%= form.text_field :usu_aut %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pas_aut %>
+    <%= form.text_field :pas_aut %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

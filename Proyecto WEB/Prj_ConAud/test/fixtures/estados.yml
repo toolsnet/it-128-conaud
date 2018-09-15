@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_est_den: 
+  nom_est: MyString
+
+two:
+  id_est_den: 
+  nom_est: MyString

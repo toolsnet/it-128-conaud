@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_08_184420) do
+ActiveRecord::Schema.define(version: 2018_09_11_153108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "autoridad", primary_key: "id_aut", id: :serial, force: :cascade do |t|
+  create_table "autoridads", primary_key: "id_aut", id: :serial, force: :cascade do |t|
     t.integer "id_tip_doc"
     t.integer "num_doc_aut"
     t.string "pri_nom_aut", limit: 30
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2018_09_08_184420) do
     t.string "pas_aut", limit: 30
   end
 
-  create_table "denunciante", primary_key: "id_usu_den", id: :serial, force: :cascade do |t|
+    create_table "denunciantes", primary_key: "id_usu_den", id: :serial, force: :cascade do |t|
     t.integer "id_tip_doc"
     t.string "num_doc_den", limit: 50
     t.date "fec_exp_doc_den"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2018_09_08_184420) do
     t.string "ema_den", limit: 30
   end
 
-  create_table "denuncias", primary_key: "id_den", id: :serial, force: :cascade do |t|
+    create_table "denuncias", primary_key: "id_den", id: :serial, force: :cascade do |t|
     t.integer "id_usu_den"
     t.decimal "lat_den"
     t.decimal "lon_den"
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2018_09_08_184420) do
     t.string "nom_est", limit: 20
   end
 
-  create_table "seguimientos", primary_key: "id_seg", id: :integer, default: nil, force: :cascade do |t|
+  create_table "seguimientos", primary_key: "id_seg", id: :serial, force: :cascade do |t|
     t.integer "id_den"
     t.integer "id_aut"
     t.integer "id_est_den"
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2018_09_08_184420) do
     t.time "hor_seg"
   end
 
-  create_table "tip_doc", primary_key: "id_tip_doc", id: :serial, force: :cascade do |t|
+  create_table "tip_docs", primary_key: "id_tip_doc", id: :serial, force: :cascade do |t|
     t.string "nom_tip_doc", limit: 20
   end
 
@@ -81,10 +81,10 @@ ActiveRecord::Schema.define(version: 2018_09_08_184420) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "autoridad", "tip_doc", column: "id_tip_doc", primary_key: "id_tip_doc", name: "autoridad_id_tip_doc_fkey"
-  add_foreign_key "denunciante", "tip_doc", column: "id_tip_doc", primary_key: "id_tip_doc", name: "denunciante_id_tip_doc_fkey"
-  add_foreign_key "denuncias", "denunciante", column: "id_usu_den", primary_key: "id_usu_den", name: "denuncias_id_usu_den_fkey"
-  add_foreign_key "seguimientos", "autoridad", column: "id_aut", primary_key: "id_aut", name: "seguimientos_id_aut_fkey"
+  add_foreign_key "autoridads", "tip_docs", column: "id_tip_doc", primary_key: "id_tip_doc", name: "autoridad_id_tip_doc_fkey"
+  add_foreign_key "denunciantes", "tip_docs", column: "id_tip_doc", primary_key: "id_tip_doc", name: "denunciante_id_tip_doc_fkey"
+  add_foreign_key "denuncias", "denunciantes", column: "id_usu_den", primary_key: "id_usu_den", name: "denuncias_id_usu_den_fkey"
+  add_foreign_key "seguimientos", "autoridads", column: "id_aut", primary_key: "id_aut", name: "seguimientos_id_aut_fkey"
   add_foreign_key "seguimientos", "denuncias", column: "id_den", primary_key: "id_den", name: "seguimientos_id_den_fkey"
   add_foreign_key "seguimientos", "estados", column: "id_est_den", primary_key: "id_est_den", name: "seguimientos_id_est_den_fkey"
 end

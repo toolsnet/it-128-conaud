@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Denunciantes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id usu den</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @denunciantes.each do |denunciante| %>
+      <tr>
+        <td><%= denunciante.id_usu_den %></td>
+        <td><%= link_to 'Show', denunciante %></td>
+        <td><%= link_to 'Edit', edit_denunciante_path(denunciante) %></td>
+        <td><%= link_to 'Destroy', denunciante, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Denunciante', new_denunciante_path %>

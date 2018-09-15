@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Autoridads</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id aut</th>
+      <th>Id tip doc</th>
+      <th>Num doc aut</th>
+      <th>Pri nom aut</th>
+      <th>Seg nom aut</th>
+      <th>Pri ape aut</th>
+      <th>Seg ape aut</th>
+      <th>Usu aut</th>
+      <th>Pas aut</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @autoridads.each do |autoridad| %>
+      <tr>
+        <td><%= autoridad.id_aut %></td>
+        <td><%= autoridad.id_tip_doc %></td>
+        <td><%= autoridad.num_doc_aut %></td>
+        <td><%= autoridad.pri_nom_aut %></td>
+        <td><%= autoridad.seg_nom_aut %></td>
+        <td><%= autoridad.pri_ape_aut %></td>
+        <td><%= autoridad.seg_ape_aut %></td>
+        <td><%= autoridad.usu_aut %></td>
+        <td><%= autoridad.pas_aut %></td>
+        <td><%= link_to 'Show', autoridad %></td>
+        <td><%= link_to 'Edit', edit_autoridad_path(autoridad) %></td>
+        <td><%= link_to 'Destroy', autoridad, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Autoridad', new_autoridad_path %>

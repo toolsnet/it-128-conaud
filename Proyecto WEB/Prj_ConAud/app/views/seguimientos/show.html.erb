@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id seg:</strong>
+  <%= @seguimiento.id_seg %>
+</p>
+
+<p>
+  <strong>Id den:</strong>
+  <%= @seguimiento.id_den %>
+</p>
+
+<p>
+  <strong>Id aut:</strong>
+  <%= @seguimiento.id_aut %>
+</p>
+
+<p>
+  <strong>Id est den:</strong>
+  <%= @seguimiento.id_est_den %>
+</p>
+
+<p>
+  <strong>Des seg:</strong>
+  <%= @seguimiento.des_seg %>
+</p>
+
+<p>
+  <strong>Fec seg:</strong>
+  <%= @seguimiento.fec_seg %>
+</p>
+
+<p>
+  <strong>Hor seg:</strong>
+  <%= @seguimiento.hor_seg %>
+</p>
+
+<%= link_to 'Edit', edit_seguimiento_path(@seguimiento) %> |
+<%= link_to 'Back', seguimientos_path %>

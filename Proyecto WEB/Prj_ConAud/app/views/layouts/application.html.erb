@@ -10,13 +10,63 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">CONAUT</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Formularios
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="<%=seguimientos_path%>">Seguimientos</a>
+          <a class="dropdown-item" href="#">Denuncias</a>
+          <a class="dropdown-item" href="<%=denunciantes_path%>">Denunciantes</a>
+          <a class="dropdown-item" href="<%=autoridads_path%>">Autoridades</a>  
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="<%=estados_path%>">Estados</a>
+          <a class="dropdown-item" href="<%=tip_docs_path%>">Tipo Documentos</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+      <li class="nav-item">
+                
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <a class="nav-link" href="<%= new_user_session_path%>">Login</a>
+    </form>
+
+    
+  </div>
+  
+</nav>
     <% flash.each do |key, value| %>
-    <div class="alert alert-<%= key %> alert-dismissable">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-        <%= value %>
-    </div>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Alerta!</strong> <%= value %>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  
+</div>
 <% end %>
+
 <%= link_to 'Login', new_user_session_path %>
+<%= link_to 'Home', ''%>
     <%= yield %>
   </body>
 </html>

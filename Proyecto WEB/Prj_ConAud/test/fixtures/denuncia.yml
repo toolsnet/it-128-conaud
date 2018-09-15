@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_den: 
+  id_usu_den: 1
+  lat_den: 
+  lon_den: 
+  ima_fue: MyString
+  aud_rep: MyString
+  aud_niv: 
+  fec_den: 2018-09-11
+  hor_den: 2018-09-11 09:00:03
+
+two:
+  id_den: 
+  id_usu_den: 1
+  lat_den: 
+  lon_den: 
+  ima_fue: MyString
+  aud_rep: MyString
+  aud_niv: 
+  fec_den: 2018-09-11
+  hor_den: 2018-09-11 09:00:03

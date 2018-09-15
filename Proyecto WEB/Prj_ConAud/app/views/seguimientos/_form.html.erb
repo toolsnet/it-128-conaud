@@ -1,0 +1,52 @@
+<%= form_with(model: seguimiento, local: true) do |form| %>
+  <% if seguimiento.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(seguimiento.errors.count, "error") %> prohibited this seguimiento from being saved:</h2>
+
+      <ul>
+      <% seguimiento.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :id_seg %>
+    <%= form.text_field :id_seg %>
+  </div>
+
+  <div class="field">
+    <%= form.label :id_den %>
+    <%= form.number_field :id_den %>
+  </div>
+
+  <div class="field">
+    <%= form.label :id_aut %>
+    <%= form.number_field :id_aut %>
+  </div>
+
+  <div class="field">
+    <%= form.label :id_est_den %>
+    <%= form.number_field :id_est_den %>
+  </div>
+
+  <div class="field">
+    <%= form.label :des_seg %>
+    <%= form.text_field :des_seg %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fec_seg %>
+    <%= form.date_select :fec_seg %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hor_seg %>
+    <%= form.time_select :hor_seg %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

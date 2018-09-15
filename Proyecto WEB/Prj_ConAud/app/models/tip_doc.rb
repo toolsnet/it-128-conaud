@@ -1,0 +1,2 @@
+class TipDoc < ApplicationRecord
+end

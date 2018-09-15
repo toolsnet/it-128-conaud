@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_aut: 
+  id_tip_doc: 1
+  num_doc_aut: 1
+  pri_nom_aut: MyString
+  seg_nom_aut: MyString
+  pri_ape_aut: MyString
+  seg_ape_aut: MyString
+  usu_aut: MyString
+  pas_aut: MyString
+
+two:
+  id_aut: 
+  id_tip_doc: 1
+  num_doc_aut: 1
+  pri_nom_aut: MyString
+  seg_nom_aut: MyString
+  pri_ape_aut: MyString
+  seg_ape_aut: MyString
+  usu_aut: MyString
+  pas_aut: MyString

@@ -1,0 +1,2 @@
+module TipDocsHelper
+end
