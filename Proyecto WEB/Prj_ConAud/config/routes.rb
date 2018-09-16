@@ -17,8 +17,8 @@ Rails.application.routes.draw do
       resources :users
       devise_scope :user do
         post '/authentication_tokens/create', to: "authentication_tokens#create"
-     end
       end
-   end
+    end
+  end
 end
 
