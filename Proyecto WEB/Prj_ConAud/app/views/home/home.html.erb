@@ -1,9 +1,33 @@
 <style type="text/css">
-	h1{	color: white;
-	}
+  h1{ color: white;
+  }
    #map {
         height: 100%;
       }
+
+#dentable {  
+  height: 600px;
+  overflow-y: scroll;
+}
+
+.fila:hover{
+  background-color: #007bff;
+  color: white;
+
+}
+
+
+.marker {
+  background-image: url('/assets/mapbox-icon.png');
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+
+
 </style>
 
 
@@ -16,89 +40,107 @@
     </div>    
   </div>
   <div class="row">
-    <div class="col-3" >
-      <table class="table">
+    <div id="dentable" class="col-3" >
+
+<table class="table table-bordered">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">Fecha</th>
-      <th scope="col">Nivel Audio</th>      
+      <th scope="col"> #</th>
+      <th scope="col"> Nivel</th>
+      <th scope="col"> Fecha</th>
+      <!-- <th scope="col"> Hora</th>       -->
     </tr>
   </thead>
-    <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>      
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>      
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>      
-    </tr>
-  </tbody>
-</table>
-<table>
-<tbody class="table">
+<tbody>
   <% @denuncias=Denuncias.all %>
+    <% num=1 %>
     <% @denuncias.each do |denuncia| %>
-      <tr>
-        <td><%= denuncia.id_den %></td>
-        <td><%= denuncia.id_usu_den %></td>
-        <td><%= denuncia.lat_den %></td>
-        <td><%= denuncia.lon_den %></td>
-        <td><%= denuncia.ima_fue %></td>
-        <td><%= denuncia.aud_rep %></td>
+     <%
+            den_sel=[denuncia.id_den,
+                    denuncia.id_usu_den,
+                    denuncia.lat_den,
+                    denuncia.lon_den,
+                    denuncia.ima_fue,
+                    denuncia.aud_rep,
+                    denuncia.aud_niv,
+                    denuncia.fec_den,
+                    denuncia.hor_den ]
+
+        %>
+      <tr  class="fila" onclick="SetMarker(<%= den_sel[2] %>,<%= den_sel[3] %>)"> 
+        <td><%= num %></td>      
         <td><%= denuncia.aud_niv %></td>
         <td><%= denuncia.fec_den %></td>
-        <td><%= denuncia.hor_den %></td>
-        <td><%= link_to 'Show', denuncia %></td>
-        <td><%= link_to 'Edit', edit_denuncia_path(denuncia) %></td>
-        <td><%= link_to 'Destroy', denuncia, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% num=num +1%>
+       
+        <!-- <td><%= denuncia.hor_den%></td>        -->
       </tr>
     <% end %>
   </tbody>
   </table>
-  <table>
-<tbody class="table">
-  <% @tip_docs = TipDoc.all%>
-    <% @tip_docs.each do |tip_doc| %>
-      <tr>
-        <td><%= tip_doc.id_tip_doc %></td>
-        <td><%= tip_doc.nom_tip_doc %></td>
-        <td><%= link_to 'Show', tip_doc %></td>
-        <td><%= link_to 'Edit', edit_tip_doc_path(tip_doc) %></td>
-        <td><%= link_to 'Destroy', tip_doc, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-    </table>
-    </div>
+  
+ </div>
     <div class="col-9 bg-dark" style="height: 600px">
       <div id='map' style='width: 100%; height: 100%;'></div>
     </div>    
   </div>
-<div class="row">
-  <div class="col" style="background-color:yellow;">col</div>
+<div id ="busqueda" class="row">
+  <div class="col" style="background-color:yellow;">
+
+    <p id="demo"></p>
+
+   </div>
   
 </div>
 
 
 </div>
 
+
+
+
 <script>
+
+
+
+function mouseoverFila()
+{    
+    var element = document.getElementById("fila");
+    element.classList.add("text-light");
+    element.classList.add("bg-dark");
+}
+
+function mouseoutFila()
+{    
+    var element = document.getElementById("fila");
+    element.classList.remove("text-light");
+    element.classList.remove()("bg-dark"); 
+}
+
+
+
 mapboxgl.accessToken = 'pk.eyJ1IjoibWFudWVsZnFjIiwiYSI6ImNqbTNreTZ6eTBiYzMzcHQzNTZrNGxvOTUifQ.bUgoFu7XkuKI9bjSggfnqQ';
 var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v9',
-    center: [-74.08,4.60], // starting position [lng, lat]
-    zoom: 9 // starting zoom
+   center: [-74.08,4.60], // starting position [lng, lat]
+    zoom: 1 // starting zoom
+
+    
 });
+
+function SetMarker(lat,lng){
+
+var lnglat= [parseFloat(lng), parseFloat(lat)];
+  marker = new mapboxgl.Marker()
+        .setLngLat(lnglat)
+        .addTo(map);
+
+}
+
+
+
+
 </script>
     
 

@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2018_09_11_153108) do
     t.string "pas_aut", limit: 30
   end
 
-    create_table "denunciantes", primary_key: "id_usu_den", id: :serial, force: :cascade do |t|
+  create_table "denunciantes", primary_key: "id_usu_den", id: :serial, force: :cascade do |t|
     t.integer "id_tip_doc"
     t.string "num_doc_den", limit: 50
     t.date "fec_exp_doc_den"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2018_09_11_153108) do
     t.string "ema_den", limit: 30
   end
 
-    create_table "denuncias", primary_key: "id_den", id: :serial, force: :cascade do |t|
+  create_table "denuncias", primary_key: "id_den", id: :serial, force: :cascade do |t|
     t.integer "id_usu_den"
     t.decimal "lat_den"
     t.decimal "lon_den"
